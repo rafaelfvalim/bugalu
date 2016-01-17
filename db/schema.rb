@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117175758) do
+ActiveRecord::Schema.define(version: 20160117180934) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(version: 20160117175758) do
     t.datetime "updated_at",                  null: false
   end
 
+  add_index "products", ["category_id"], name: "fk_rails_fb915499a4", using: :btree
+  add_index "products", ["group_id"], name: "fk_rails_ed34620b74", using: :btree
+  add_index "products", ["license_id"], name: "fk_rails_abf7cd31e9", using: :btree
+  add_index "products", ["product_type_id"], name: "fk_rails_8464b8e5d7", using: :btree
+  add_index "products", ["publisher_id"], name: "fk_rails_693e212a7f", using: :btree
+
   create_table "publishers", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "user_id",    limit: 4
@@ -75,4 +81,9 @@ ActiveRecord::Schema.define(version: 20160117175758) do
     t.integer  "role",       limit: 4
   end
 
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "groups"
+  add_foreign_key "products", "licenses"
+  add_foreign_key "products", "product_types"
+  add_foreign_key "products", "publishers"
 end

@@ -15,10 +15,10 @@ development:
   database: bugalu_development
   pool: 5
   username: root
-  password: root
-  host: localhost
+  password: dev2015
+  host: 127.0.0.1
 
-# Warning: The database defined as "test" will be erased and
+# Warning: The database defined as "test" will be erasedd and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
@@ -28,8 +28,8 @@ test:
   database: bugalu_test
   pool: 5
   username: root
-  password: root
-  host: localhost
+  password: dev2015
+  host: 127.0.0.1
 
 production:
   adapter: mysql2
@@ -38,5 +38,5 @@ production:
   database: bugalu_production
   pool: 5
   username: root
-  password: root
-  host: localhost
+  password: dev2015
+  host: 127.0.0.1

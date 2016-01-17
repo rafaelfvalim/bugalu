@@ -55,5 +55,5 @@ group :test do
 end
 gem 'font-awesome-rails'
 gem 'carrierwave'
-
+gem 'rmagick'
 

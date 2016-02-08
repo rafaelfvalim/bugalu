@@ -4,9 +4,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.joins(:publisher).where(:publishers => {:user_id => current_user.id})
   end
-
   # GET /products/1
   # GET /products/1.json
   def show
@@ -25,6 +24,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.publisher = Publisher.create(user: current_user)
 
     respond_to do |format|
       if @product.save

@@ -1,21 +1,18 @@
 <%= simple_form_for(@product) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :type %>
-    <%= f.input :description %>
-    <%= f.input :views %>
-    <%= f.input :published %>
-    <%= f.input :published_date %>
-    <%= f.input :publisher_id %>
-    <%= f.input :category_id %>
-    <%= f.input :license_id %>
-    <%= f.input :time_dutation %>
-    <%= f.input :group_id %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="col col-md-5">
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :file, as: :file %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-12">
+        <%= link_to 'Voltar' , products_path, class: 'btn btn-primary' %>
+        <%= f.button :submit %>
+      </div>
+    </div>
 <% end %>
